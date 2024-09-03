@@ -10,19 +10,22 @@ import SwiftUI
 struct AstronautView: View {
     let astronaut : Astronaut
     var body: some View {
-        ScrollView {
-            VStack {
-                Image(astronaut.id)
-                    .resizable()
-                    .scaledToFit()
-                
-                Text(astronaut.description)
-                    .padding(/*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ScrollView {
+                VStack {
+                    Image(astronaut.id)
+                        .resizable()
+                        .scaledToFit()
+                    
+                    Text(astronaut.description)
+                        .padding()
+                }
             }
+            .background(.darkBackground)
+            .navigationTitle(astronaut.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .background(.darkBackground)
-        .navigationTitle(astronaut.name)
-        .navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 
